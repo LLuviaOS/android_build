@@ -28,12 +28,17 @@ PRODUCT_PACKAGES += \
     Contacts \
     DeskClock \
     Gallery2 \
-    LatinIME \
+    Launcher3QuickStep \
     Music \
     OneTimeInitializer \
     QuickSearchBox \
     SettingsIntelligence \
     frameworks-base-overlays
+
+ifeq ($(LLUVIA_BUILD),)
+PRODUCT_PACKAGES += \
+    LatinIME
+endif
 
 PRODUCT_PACKAGES_DEBUG += \
     frameworks-base-overlays-debug
