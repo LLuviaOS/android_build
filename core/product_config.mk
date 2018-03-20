@@ -168,9 +168,11 @@ include $(BUILD_SYSTEM)/node_fns.mk
 include $(BUILD_SYSTEM)/product.mk
 include $(BUILD_SYSTEM)/device.mk
 
+
 # A LLUVIA build needs only the LLUVIA product makefiles.
 ifneq ($(LLUVIA_BUILD),)
   all_product_configs := $(shell find device -path "*/$(LLUVIA_BUILD)/lluvia.mk")
+  all_product_configs += $(wildcard vendor/lluvia/build/target/product/lluvia_$(LLUVIA_BUILD).mk)
 else
   ifneq ($(strip $(TARGET_BUILD_APPS)),)
   # An unbundled app build needs only the core product makefiles.
