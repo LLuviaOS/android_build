@@ -507,7 +507,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("  ###   # ###   # ###  ##  #####   ### ##   ###  ");
   script.Print("  ####### #######  #####    ###    ### ##   ###  ");
   script.Print("                                        ###      ");
-  script.Print("                "Let It Rain"                    ");
+  script.Print("                  Let It Rain                    ");
   script.Print("*************************************************");
 
   if OPTIONS.wipe_user_data:
