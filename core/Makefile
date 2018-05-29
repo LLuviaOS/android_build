@@ -2788,7 +2788,6 @@ bacon: otapackage
 lluvia: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LLUVIA_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(LLUVIA_TARGET_PACKAGE) > $(LLUVIA_TARGET_PACKAGE).md5sum
-
 	@echo -e ${CL_RED}""${CL_RED} \
         @echo -e ${CL_RED}" ██╗     ██╗     ██╗   ██╗██╗   ██╗██╗ █████╗  "${CL_RED} \
         @echo -e ${CL_RED}" ██║     ██║     ██║   ██║██║   ██║██║██╔══██╗ "${CL_RED} \
