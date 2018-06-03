@@ -2823,15 +2823,16 @@ bacon: otapackage
 lluvia: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LLUVIA_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(LLUVIA_TARGET_PACKAGE) > $(LLUVIA_TARGET_PACKAGE).md5sum
-	@echo -e ${CL_RED}""${CL_RED} \
-        @echo -e ${CL_RED}" ██╗     ██╗     ██╗   ██╗██╗   ██╗██╗ █████╗  "${CL_RED} \
-        @echo -e ${CL_RED}" ██║     ██║     ██║   ██║██║   ██║██║██╔══██╗ "${CL_RED} \
-        @echo -e ${CL_RED}" ██║     ██║     ██║   ██║██║   ██║██║███████║ "${CL_RED} \
-        @echo -e ${CL_RED}" ██║     ██║     ██║   ██║╚██╗ ██╔╝██║██╔══██║ "${CL_RED} \
-        @echo -e ${CL_RED}" ███████╗███████╗╚██████╔╝ ╚████╔╝ ██║██║  ██║ "${CL_RED} \
-        @echo -e ${CL_RED}" ╚══════╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝  ╚═╝ "${CL_RED} \
-        @echo -e ${CL_RED}"            A Storm Has Broke Out              "${CL_RED} \
-        @echo -e ${CL_RED}"              EXPERIENCETHEPOWER               "${CL_RED} 
+	
+	@echo -e ${CL_BLU}""${CL_RST}
+	@echo -e ${CL_BLU}" ██╗     ██╗     ██╗   ██╗██╗   ██╗██╗ █████╗  "${CL_RST}
+	@echo -e ${CL_BLU}" ██║     ██║     ██║   ██║██║   ██║██║██╔══██╗ "${CL_RST}
+	@echo -e ${CL_BLU}" ██║     ██║     ██║   ██║██║   ██║██║███████║ "${CL_RST}
+	@echo -e ${CL_BLU}" ██║     ██║     ██║   ██║╚██╗ ██╔╝██║██╔══██║ "${CL_RST}
+	@echo -e ${CL_BLU}" ███████╗███████╗╚██████╔╝ ╚████╔╝ ██║██║  ██║ "${CL_RST}
+	@echo -e ${CL_BLU}" ╚══════╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝  ╚═╝ "${CL_RST}
+	@echo -e ${CL_BLU}"            A Storm Has Broke Out              "${CL_RST}
+	@echo -e ${CL_BLU}"              EXPERIENCETHEPOWER               "${CL_RST}
 	@echo -e "Package complete: $(LLUVIA_TARGET_PACKAGE)"
 
 endif    # build_ota_package
