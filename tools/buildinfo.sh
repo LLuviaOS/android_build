@@ -31,6 +31,9 @@ echo "ro.product.brand=$PRODUCT_BRAND"
 echo "ro.product.name=$PRODUCT_NAME"
 echo "ro.product.device=$TARGET_DEVICE"
 
+echo "ro.lluvia.device=$TARGET_DEVICE"
+echo "ro.lluvia.ota.version=LLuvia-$TARGET_DEVICE-8.1-NATUREMADE-$(date +"%Y%m%d")"
+
 # These values are deprecated, use "ro.product.cpu.abilist"
 # instead (see below).
 echo "# ro.product.cpu.abi and ro.product.cpu.abi2 are obsolete,"
@@ -57,6 +60,9 @@ echo "ro.build.description=$PRIVATE_BUILD_DESC"
 echo "ro.build.fingerprint=$BUILD_FINGERPRINT"
 if [ -n "$BUILD_THUMBPRINT" ] ; then
   echo "ro.build.thumbprint=$BUILD_THUMBPRINT"
+fi
+if [ -n "$DEVICE_MAINTAINERS" ] ; then
+  echo "ro.lluvia.maintainer=$DEVICE_MAINTAINERS"
 fi
 echo "ro.build.characteristics=$TARGET_AAPT_CHARACTERISTICS"
 
