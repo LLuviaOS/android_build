@@ -499,7 +499,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   modver = GetBuildProp("ro.lluvia.version", OPTIONS.info_dict)
   script.Print(" ")
   script.Print("Device: %s (%s)"%(model, device))
-  script.Print("Version: %s"%(modver)); 
+  script.Print("Version: %s"%(modver))
 
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
