@@ -2736,7 +2736,7 @@ endif
 ifeq ($(WITH_GMS),true)
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := false
 else
-ifneq ($(AOSIP_BUILD),)
+ifneq ($(LLUVIA_BUILD),)
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := true
 else
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := false
@@ -2756,8 +2756,28 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) \
 	   $(if $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-.PHONY: otapackage
+CUSTOM_TARGET_PACKAGE := $(PRODUCT_OUT)/LLUVIA-$(LLUVIA_VERSION).zip
+
+.PHONY: otapackage bacon Thunder
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
+bacon: otapackage
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LLUVIA_TARGET_PACKAGE)
+	$(hide) $(MD5SUM) $(LLUVIA_TARGET_PACKAGE) > $(LLUVIA_TARGET_PACKAGE).md5sum
+	@echo -e "Package complete: $(LLUVIA_TARGET_PACKAGE)"
+Thunder: otapackage
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LLUVIA_TARGET_PACKAGE)
+	$(hide) $(MD5SUM) $(LLUVIA_TARGET_PACKAGE) > $(LLUVIA_TARGET_PACKAGE).md5sum
+	
+	@echo -e ${CL_BLU}""${CL_RST}
+	@echo -e ${CL_BLU}" ██╗     ██╗     ██╗   ██╗██╗   ██╗██╗ █████╗  "${CL_RST}
+	@echo -e ${CL_BLU}" ██║     ██║     ██║   ██║██║   ██║██║██╔══██╗ "${CL_RST}
+	@echo -e ${CL_BLU}" ██║     ██║     ██║   ██║██║   ██║██║███████║ "${CL_RST}
+	@echo -e ${CL_BLU}" ██║     ██║     ██║   ██║╚██╗ ██╔╝██║██╔══██║ "${CL_RST}
+	@echo -e ${CL_BLU}" ███████╗███████╗╚██████╔╝ ╚████╔╝ ██║██║  ██║ "${CL_RST}
+	@echo -e ${CL_BLU}" ╚══════╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝  ╚═╝ "${CL_RST}
+	@echo -e ${CL_BLU}"            A Storm Has Broke Out              "${CL_RST}
+	@echo -e ${CL_BLU}"              EXPERIENCETHEPOWER               "${CL_RST}
+	@echo -e "Package complete: $(LLUVIA_TARGET_PACKAGE)"
 
 endif    # build_ota_package
 
