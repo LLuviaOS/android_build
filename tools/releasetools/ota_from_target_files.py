@@ -502,6 +502,9 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print(" ")
   device = GetBuildProp("ro.lluvia.device", OPTIONS.info_dict)
   modver = GetBuildProp("ro.lluvia.version", OPTIONS.info_dict)
+  releasever = GetBuildProp("ro.modversion",  OPTIONS.info_dict)
+  sdkver = GetBuildProp("ro.build.version.sdk", OPTIONS.info_dict)
+  securep = GetBuildProp("ro.build.version.security_patch", OPTIONS.info_dict)
   if GetBuildProp("ro.product.model", OPTIONS.info_dict) is not None:
     model = GetBuildProp("ro.product.model", OPTIONS.info_dict)
     script.Print("Device: %s (%s)"%(model, device))
