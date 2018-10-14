@@ -636,7 +636,7 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the Pixys model name
+            # This is probably just the LLuvia model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
