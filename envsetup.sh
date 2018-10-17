@@ -571,13 +571,18 @@ function print_lunch_menu()
        echo "  (ohai, iSheep!!)"
     fi
     echo
-    if [ "z${CUSTOM_DEVICES_ONLY}" != "z" ]; then
-       echo "Breakfast menu... pick a combo:"
-       echo " "
-    else
-       echo "Lunch menu... pick a combo:"
-       echo " "
-    fi
+
+    echo " ▄█        ▄█       ███    █▄   ▄█    █▄   ▄█     ▄████████  ▄██████▄     ▄████████ "
+    echo "███       ███       ███    ███ ███    ███ ███    ███    ███ ███    ███   ███    ███ "
+    echo "███       ███       ███    ███ ███    ███ ███▌   ███    ███ ███    ███   ███    █▀  "
+    echo "███       ███       ███    ███ ███    ███ ███▌   ███    ███ ███    ███   ███        "
+    echo "███       ███       ███    ███ ███    ███ ███▌ ▀███████████ ███    ███ ▀███████████ "
+    echo "███       ███       ███    ███ ███    ███ ███    ███    ███ ███    ███          ███ "
+    echo "███▌    ▄ ███▌    ▄ ███    ███ ███    ███ ███    ███    ███ ███    ███    ▄█    ███ "
+    echo "█████▄▄██ █████▄▄██ ████████▀   ▀██████▀  █▀     ███    █▀   ▀██████▀   ▄████████▀  "
+    echo "▀         ▀                                                                         "
+    echo " 	Here is the list of devices which are rain affect... Pick a combo:	      "
+    echo " "
 
     local i=1
     local choice
