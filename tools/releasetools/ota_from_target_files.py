@@ -821,6 +821,29 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Target: {}".format(target_info.fingerprint))
 
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
+
+  lluvia_version = target_info.GetBuildProp("ro.modversion")
+  android_version = target_info.GetBuildProp("ro.build.version.release")
+  build_id = target_info.GetBuildProp("ro.build.id")
+  security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
+  device = target_info.GetBuildProp("ro.product.device")
+  build_type= target_info.GetBuildProp("ro.lluvia.releasetype")
+
+  script.Print("*************************************************");
+  script.Print("     __    __                _       ____  _____ ");
+  script.Print("    / /   / /   __  ___   __(_)___ _/ __ \/ ___/ ");
+  script.Print("   / /   / /   / / / / | / / / __ `/ / / /\__ \  ");
+  script.Print("  / /___/ /___/ /_/ /| |/ / / /_/ / /_/ /___/ /  ");
+  script.Print(" /_____/_____/\__,_/ |___/_/\__,_/\____//____/   ");
+  script.Print("                                                 ");
+  script.Print("*************************************************");
+  script.Print(" LLuviaOS version: %s"%(lluvia_version));
+  script.Print(" Build Type: %s"%(build_type));
+  script.Print(" Android version: %s"%(android_version));
+  script.Print(" Build id: %s"%(build_id));
+  script.Print(" Security patch: %s"%(security_patch));
+  script.Print(" Device: %s"%(device));
+  script.Print("*************************************************");
   device_specific.FullOTA_InstallBegin()
 
   CopyInstallTools(output_zip)
