@@ -622,10 +622,10 @@ function breakfast()
 {
     target=$1
     local variant=$2
-    PIXYS_DEVICES_ONLY="true"
+    LLUVIA_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/pixys/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/lluvia/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -645,7 +645,7 @@ function breakfast()
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
-            lunch pixys_$target-$variant
+            lunch lluvia_$target-$variant
         fi
     fi
     return $?
