@@ -1788,6 +1788,8 @@ function __detect_shell() {
         *zsh*)
             echo zsh
             ;;
+        *zsh*)
+            ;;
         *)
             echo unknown
             return 1
@@ -1799,6 +1801,16 @@ function __detect_shell() {
 if ! __detect_shell > /dev/null; then
     echo "WARNING: Only bash and zsh are supported, use of other shell may lead to erroneous results"
 fi
+
+# determine whether arrays are zero-based (bash) or one-based (zsh)
+_xarray=(a b c)
+if [ -z "${_xarray[${#_xarray[@]}]}" ]
+then
+    _arrayoffset=1
+else
+    _arrayoffset=0
+fi
+unset _xarray
 
 # determine whether arrays are zero-based (bash) or one-based (zsh)
 _xarray=(a b c)
