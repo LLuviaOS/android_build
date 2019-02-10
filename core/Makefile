@@ -1817,6 +1817,23 @@ define read-image-prop-dictionary
 $$(grep '$(2)=' $(1) | cut -f2- -d'=')
 endef
 
+# $(1): modules list
+# $(2): output dir
+# $(3): mount point
+# $(4): staging dir
+# Depmod requires a well-formed kernel version so 0.0 is used as a placeholder.
+define build-image-kernel-modules
+    rm -rf $(2)/lib/modules
+    mkdir -p $(2)/lib/modules
+    cp $(1) $(2)/lib/modules/
+    rm -rf $(4)
+    mkdir -p $(4)/lib/modules/0.0/$(3)lib/modules
+    cp $(1) $(4)/lib/modules/0.0/$(3)lib/modules
+    $(DEPMOD) -b $(4) 0.0
+    sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $(4)/lib/modules/0.0/modules.dep > $(2)/lib/modules/modules.dep
+    cp $(4)/lib/modules/0.0/modules.alias $(2)/lib/modules
+endef
+
 # -----------------------------------------------------------------
 # Recovery image
 
